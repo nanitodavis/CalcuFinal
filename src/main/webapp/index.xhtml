@@ -17,15 +17,15 @@
                 <p:effect type="slide" event="click"  /> 
             </p:outputLabel>
             <br></br>
-            <p:outputLabel id="cals" value="#{calculadoraBean.cal.resultado}"  ></p:outputLabel>
-              <p:outputLabel id="num1" value="#{calculadoraBean.cal.numero1}" ></p:outputLabel>
+        <p:outputLabel id="cals" value="#{calculadoraBean.cal.resultado}" ></p:outputLabel>
+        <p:outputLabel id="num1" value="#{calculadoraBean.cal.numero1}" ></p:outputLabel>
         <p:outputLabel id="num2" value="#{calculadoraBean.cal.numero2}" ></p:outputLabel>
         <p:outputLabel id="op" value="#{calculadoraBean.cal.operacion}" ></p:outputLabel>
            
         <h:form>
                 <table align="center">  
                     <tr>
-                        <th><p:commandButton  id="siete" value="7" actionListener="#{calculadoraBean.calcular(7)}" update="cals"  />  </th>
+                        <th><p:commandButton  id="siete" value="7" actionListener="#{calculadoraBean.calcular(7)}" />  </th>
                         <th><p:commandButton id="ocho" value="8" actionListener="#{calculadoraBean.calcular(8)}" />  </th>
                         <th><p:commandButton id="nueve" value="9" actionListener="#{calculadoraBean.numero(9)}"/> </th>
                         <th><p:commandButton  id="mas" value="+" actionListener="#{calculadoraBean.cal.operacion}"/> </th>

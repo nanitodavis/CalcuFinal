@@ -8,6 +8,8 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class CalculadoraBean {
     
+    public Calculadora cal = new Calculadora();
+    
     public Calculadora getCal() {
         return cal;
     }
@@ -16,53 +18,28 @@ public class CalculadoraBean {
         this.cal = cal;
     }
     
-    public Calculadora cal = new Calculadora();
-    
-    public void calcular(int n1 ){
-    
-  
-      /*
-            cal.setNumero1(n1);
-        
-        cal.getNumero1();
-        cal.getNumero2();
-      
-      
-        cal.numero1 = n1;
-        cal.operacion= "+";
-     switch ( cal.operacion ) {
+    public void calcular(int n1, int n2, String op){
+        cal.setNumero1(n1);
+        cal.setNumero2(n2);
+        cal.setOperacion(op);
+     switch ( cal.getOperacion() ) {
       case "+":
-          cal.resultado = cal.numero1 + cal.numero2;
+          cal.setResultado(cal.getNumero1()+cal.getNumero2());
            break;
       case "-":
-          cal.resultado = cal.numero1 - cal.numero2;
+          cal.setResultado(cal.getNumero1()-cal.getNumero2());
            break;
       case "*":
-         cal.resultado = cal.numero1 * cal.numero2;
+          cal.setResultado(cal.getNumero1()*cal.getNumero2());
            break;
       case "/":
-           cal.resultado = cal.numero1 / cal.numero2;
+          cal.setResultado(cal.getNumero1()/cal.getNumero2());
            break;
       default:
            System.out.println("error" );
            break;
       }
-    */
-        cal.resultado=n1;
      
-    }
-       public void numero(int n){
-        
-       /*
-        if (cal.numero1 == 0){
-            cal.setNumero1(n);        
-        }else{
-            cal.setNumero2(n);
-        }
-    */
-        cal.setResultado(n);
-   
-        
     }
    
 }

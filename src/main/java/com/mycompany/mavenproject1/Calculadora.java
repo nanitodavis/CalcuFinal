@@ -4,7 +4,9 @@ package com.mycompany.mavenproject1;
 
 public class Calculadora {
     public int numero1;
-    public int numero2;
+    public int numero2;  
+    public double resultado;
+    public String operacion;
 
     public double getResultado() {
         return resultado;
@@ -13,14 +15,6 @@ public class Calculadora {
     public void setResultado(double resultado) {
         this.resultado = resultado;
     }
-
-   
-
-
-
-    
-    public double resultado;
-    public String operacion;
 
     public int getNumero1() {
         return numero1;
@@ -38,8 +32,6 @@ public class Calculadora {
         this.numero2 = numero2;
     }
 
- 
-
     public String getOperacion() {
         return operacion;
     }
@@ -48,6 +40,5 @@ public class Calculadora {
         this.operacion = operacion;
     }
     
-   
-    
+     
 }
