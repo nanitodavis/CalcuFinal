@@ -7,6 +7,13 @@ public class Calculadora {
     public int numero2;  
     public double resultado;
     public String operacion;
+    
+    public Calculadora(){
+        numero1=0;
+        numero2=0;
+        resultado=0;
+        operacion="";
+    }
 
     public double getResultado() {
         return resultado;

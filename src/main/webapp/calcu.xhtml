@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Calculadora</title>
+    </h:head>
+    <h:body>
+        <p:panel header="Calculadora">
+            <p:outputLabel value="Resultado"> 
+                <!-- Aplicamos un efecto al texto cuando se pulse sobre el -->
+                <!-- Efectos posibles en el atributo type:-->
+                <!-- blind,clip,drop,explode,fold,puff,slide,scale,bounce, -->
+                <!-- highlight pulsate shake size transfer -->
+
+                <p:effect type="slide" event="click"  /> 
+            </p:outputLabel>
+            <br></br>
+            <p:outputLabel id="res" value="#{calculadoraBean.cal.resultado}" ></p:outputLabel>
+          <!--<th><p:outputLabel id="num1" value="#{calculadoraBean.cal.numero1}" ></p:outputLabel></th>
+            <th><p:outputLabel id="op" value="#{calculadoraBean.cal.operacion}" ></p:outputLabel></th>
+            <th><p:outputLabel id="num2" value="#{calculadoraBean.cal.numero2}" ></p:outputLabel></th>-->
+           
+        <h:form>
+                <table align="center">  
+                    <tr>
+                        <th><p:commandButton id="siete" value="7" actionListener="#{calculadoraBean.agregarNumero(7)}" />  </th>
+                        <th><p:commandButton id="ocho" value="8" actionListener="#{calculadoraBean.agregarNumero(8)}" />  </th>
+                        <th><p:commandButton id="nueve" value="9" actionListener="#{calculadoraBean.agregarNumero(9)}"/> </th>
+                        <th><p:commandButton id="mas" value="+" actionListener="#{calculadoraBean.agregarOperacion(0)}"/> </th>
+                    </tr>
+                    <tr>
+                        <th><p:commandButton id="cuatro" value="4" actionListener="#{calculadoraBean.agregarNumero(4)}"/>  </th>
+                        <th><p:commandButton id="cinco" value="5" actionListener="#{calculadoraBean.agregarNumero(5)}"/>  </th>
+                        <th><p:commandButton id="seis" value="6" actionListener="#{calculadoraBean.agregarNumero(6)}"/> </th>
+                        <th><p:commandButton id="menos" value="-" actionListener="#{calculadoraBean.agregarOperacion(1)}"/> </th>
+                    </tr>
+                    <tr>
+                        <th><p:commandButton id="uno" value="1" actionListener="#{calculadoraBean.agregarNumero(1)}"/>  </th>
+                        <th><p:commandButton id="dos" value="2" actionListener="#{calculadoraBean.cal.agregarNumero(2)}"/>  </th>
+                        <th><p:commandButton id="tres" value="3" actionListener="#{calculadoraBean.agregarNumero(3)}"/> </th>
+                        <th><p:commandButton id="mult" value="*" actionListener="#{calculadoraBean.agregarOperacion(2)}"/> </th>
+                    </tr>
+                    <tr>
+                        <th><p:commandButton id="cero" value="0" actionListener="#{calculadoraBean.agregarNumero(0)}"/> </th>
+                        <th><p:commandButton id="punto" value="."/></th> 
+                        <th><p:commandButton id="igual" value="=" actionListener="#{calculadoraBean.calcular()}"/></th>
+                        <th><p:commandButton id="div" value="/" actionListener="#{calculadoraBean.agregarOperacion(3)}" /> </th>
+                    </tr>
+                    
+                </table>
+            </h:form>
+        </p:panel>
+        
+        <p:commandButton value="Calcular" actionListener="#{calculadoraBean.calcular()}" update="res" />
+        
+    </h:body>
+</html>
+

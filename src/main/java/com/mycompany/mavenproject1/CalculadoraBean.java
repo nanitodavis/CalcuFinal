@@ -18,10 +18,29 @@ public class CalculadoraBean {
         this.cal = cal;
     }
     
-    public void calcular(int n1, int n2, String op){
-        cal.setNumero1(n1);
-        cal.setNumero2(n2);
-        cal.setOperacion(op);
+    public void agregarNumero(int num1){
+        if(cal.getNumero1()==0){
+            cal.setNumero1(num1);
+        }
+        else
+            cal.setNumero2(num1);   
+    }
+    public void agregarOperacion(int op){
+        if(op==0)
+        cal.setOperacion("+");
+        else if(op==1)
+        cal.setOperacion("-");
+        else if(op==2)
+        cal.setOperacion("*");
+        else if(op==3)
+        cal.setOperacion("/");
+    }
+    
+    public double obtenerResultado(){
+        return cal.getResultado();
+    }
+    
+    public void calcular(){
      switch ( cal.getOperacion() ) {
       case "+":
           cal.setResultado(cal.getNumero1()+cal.getNumero2());
