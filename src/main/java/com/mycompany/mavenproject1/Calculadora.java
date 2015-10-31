@@ -3,10 +3,10 @@ package com.mycompany.mavenproject1;
 
 
 public class Calculadora {
-    public int numero1;
-    public int numero2;  
-    public double resultado;
-    public String operacion;
+    private int numero1;
+    private int numero2;  
+    private double resultado;
+    private String operacion;
     
     public Calculadora(){
         numero1=0;

@@ -3,12 +3,13 @@ package com.mycompany.mavenproject1;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class CalculadoraBean {
     
-    public Calculadora cal = new Calculadora();
+    private Calculadora cal = new Calculadora();
     
     public Calculadora getCal() {
         return cal;
@@ -40,6 +41,11 @@ public class CalculadoraBean {
         return cal.getResultado();
     }
     
+    public void limpiarCalculadora(){
+        cal.setNumero1(0);
+        cal.setNumero2(0);
+    }
+    
     public void calcular(){
      switch ( cal.getOperacion() ) {
       case "+":
@@ -49,13 +55,13 @@ public class CalculadoraBean {
           cal.setResultado(cal.getNumero1()-cal.getNumero2());
            break;
       case "*":
-          cal.setResultado(cal.getNumero1()*cal.getNumero2());
+          cal.setResultado((cal.getNumero1())*(cal.getNumero2()));
            break;
       case "/":
-          cal.setResultado(cal.getNumero1()/cal.getNumero2());
+          cal.setResultado((cal.getNumero1())/(cal.getNumero2()));
            break;
       default:
-           System.out.println("error" );
+           System.out.println("error");
            break;
       }
      
