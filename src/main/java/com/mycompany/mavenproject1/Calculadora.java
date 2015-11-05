@@ -20,6 +20,14 @@ public class Calculadora {
         numeros = new ArrayList<Integer>();
         operaciones = new ArrayList<String>();
     }
+    
+    public int obtenerNumero(int index){
+        return numeros.get(index);
+    }
+    
+    public String obtenerOperacion(int index){
+        return operaciones.get(index);
+    }
      
     public void agregarNumero(int num){
         numeros.add(num);
@@ -64,6 +72,14 @@ public class Calculadora {
 
     public void setOperacion(String operacion) {
         this.operacion = operacion;
+    }
+    
+    public ArrayList getNumeros(){
+        return numeros;
+    }
+    
+    public ArrayList getOperaciones(){
+        return operaciones;
     }
     
      

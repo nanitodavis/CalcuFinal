@@ -1,8 +1,9 @@
 
 package com.mycompany.mavenproject1;
 
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+//import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean
@@ -10,31 +11,21 @@ import javax.faces.bean.SessionScoped;
 public class CalculadoraBean {
     
     private Calculadora cal = new Calculadora();
+    //private ArrayList<Integer> temp=new ArrayList();
     
-    public Calculadora getCal() {
-        return cal;
-    }
-
-    public void setCal(Calculadora cal) {
-        this.cal = cal;
+    public void agregarNumero(int num){
+        cal.getNumeros().add(num);
     }
     
-    public void agregarNumero(int num1){
-        if(cal.getNumero1()==0){
-            cal.setNumero1(num1);
-        }
-        else
-            cal.setNumero2(num1);   
-    }
     public void agregarOperacion(int op){
         if(op==0)
-        cal.setOperacion("+");
+        cal.agregarOperacion("+");
         else if(op==1)
-        cal.setOperacion("-");
+        cal.agregarOperacion("-");
         else if(op==2)
-        cal.setOperacion("*");
+        cal.agregarOperacion("*");
         else if(op==3)
-        cal.setOperacion("/");
+        cal.agregarOperacion("/");
     }
     
     public double obtenerResultado(){
@@ -42,29 +33,43 @@ public class CalculadoraBean {
     }
     
     public void limpiarCalculadora(){
-        cal.setNumero1(0);
-        cal.setNumero2(0);
+        cal.vaciarListas();
     }
     
     public void calcular(){
-     switch ( cal.getOperacion() ) {
-      case "+":
-          cal.setResultado(cal.getNumero1()+cal.getNumero2());
-           break;
-      case "-":
-          cal.setResultado(cal.getNumero1()-cal.getNumero2());
-           break;
-      case "*":
-          cal.setResultado((cal.getNumero1())*(cal.getNumero2()));
-           break;
-      case "/":
-          cal.setResultado((cal.getNumero1())/(cal.getNumero2()));
-           break;
-      default:
-           System.out.println("error");
-           break;
-      }
+        double resTemp=cal.obtenerNumero(0);
+        for(int cont=0;cont<cal.getOperaciones().size();cont++){
+            switch (cal.obtenerOperacion(cont)) {
+            case "+":
+               resTemp=resTemp+cal.obtenerNumero(cont+1);
+               cal.setResultado(resTemp);
+               break;
+            case "-":
+               resTemp-=resTemp-cal.obtenerNumero(cont+1);
+               cal.setResultado(resTemp);
+               break;
+            case "*":
+               resTemp=resTemp * cal.obtenerNumero(cont+1);
+               cal.setResultado(resTemp);
+               break;
+            case "/":
+               resTemp=resTemp / cal.obtenerNumero(cont+1);
+               cal.setResultado(resTemp);
+               break;
+            default:
+              System.out.println("error");
+              break;
+            }
+        }
      
+    }
+        
+    public Calculadora getCal() {
+        return cal;
+    }
+
+    public void setCal(Calculadora cal) {
+        this.cal = cal;
     }
    
 }
