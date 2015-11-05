@@ -1,18 +1,37 @@
 
 package com.mycompany.mavenproject1;
 
+import java.util.ArrayList;
+
 
 public class Calculadora {
     private int numero1;
     private int numero2;  
     private double resultado;
     private String operacion;
+    private ArrayList<Integer> numeros;
+    private ArrayList<String> operaciones;
     
     public Calculadora(){
         numero1=0;
         numero2=0;
         resultado=0;
-        operacion="";
+        operacion="";       
+        numeros = new ArrayList<Integer>();
+        operaciones = new ArrayList<String>();
+    }
+     
+    public void agregarNumero(int num){
+        numeros.add(num);
+    }
+    
+    public void agregarOperacion(String op){
+        operaciones.add(op);
+    }
+    
+    public void vaciarListas(){
+        numeros.clear();
+        operaciones.clear();
     }
 
     public double getResultado() {
